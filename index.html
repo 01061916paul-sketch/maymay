@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美美 工業表面處理與塗裝加工</title>
+<meta name="description" content="美美：標準化製程、數據監控、高規格塗裝品質。預約產能諮詢，索取製程規格書與報價試算。">
+<style>
+/* ===== Tokens ===== */
+:root{
+  --bg:#0b0c0e; --bg2:#121418; --card:#171a1f; --line:#2a2e35;
+  --ink:#f2f4f6; --soft:#9aa3ad; --steel:#c7d0d9; --hi:#ffffff;
+  --paper:#f4f5f6; --paper-ink:#0d0e10; --paper-soft:#5d646c; --paper-card:#e9ebed;
+  --font:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+  --r:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:2px solid var(--hi);outline-offset:3px}
+
+/* ===== Buttons ===== */
+.btn{display:inline-flex;align-items:center;gap:14px;padding:6px 6px 6px 26px;border-radius:999px;background:var(--hi);color:var(--paper-ink);font-weight:600;font-size:15px;border:0;cursor:pointer;transition:transform .25s,background .25s}
+.btn i{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--paper-ink);color:#fff;font-style:normal;transition:transform .25s}
+.btn:hover{transform:translateY(-2px)} .btn:hover i{transform:translateX(3px)}
+.btn.dark{background:var(--paper-ink);color:#fff} .btn.dark i{background:#fff;color:var(--paper-ink)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px #ffffff55} .btn.ghost i{background:var(--ink);color:var(--bg)}
+
+/* ===== Nav ===== */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;padding:18px 0;transition:background .3s,backdrop-filter .3s}
+nav.solid{background:#0b0c0ecc;backdrop-filter:blur(14px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;letter-spacing:.08em}
+.logo b{display:grid;place-items:center;width:34px;height:34px;border:1.5px solid var(--ink);border-radius:8px;font-size:15px}
+.links{display:flex;gap:30px;font-size:14px;color:var(--steel)}
+.links a:hover{color:#fff}
+nav .btn{padding:4px 4px 4px 20px;font-size:14px} nav .btn i{width:36px;height:36px}
+@media(max-width:900px){.links{display:none}}
+
+/* ===== Hero (layered planes) ===== */
+.hero{position:relative;height:118vh;min-height:760px;background:#08090b;border-radius:0 0 56px 56px;overflow:hidden}
+.plane{position:absolute;inset:0;will-change:transform}
+.p-far{background:
+  radial-gradient(60% 55% at 70% 38%,#3b434d 0%,#1b2026 45%,#08090b 80%),
+  linear-gradient(#0e1114,#08090b)}
+.p-far svg,.p-mid svg,.p-near svg{position:absolute;left:0;width:100%;height:auto}
+.hero-title{position:absolute;left:0;right:0;top:15vh;z-index:3;text-align:center;font-weight:800;line-height:.9;letter-spacing:.04em;font-size:clamp(130px,27vw,420px);color:var(--hi);mix-blend-mode:normal;user-select:none;will-change:transform}
+.hero-title span{display:block}
+.p-mid{z-index:4;pointer-events:none}
+.p-near{z-index:5;pointer-events:none}
+.hero-copy{position:absolute;z-index:6;left:max(20px,calc((100% - 1240px)/2));bottom:11vh;max-width:560px}
+.hero-copy small{display:block;color:var(--steel);font-size:14px;margin-bottom:16px;max-width:420px}
+.hero-copy h1{font-size:clamp(34px,5vw,68px);font-weight:800;line-height:1.12;margin-bottom:28px}
+.hero-cards{position:absolute;z-index:6;right:max(20px,calc((100% - 1240px)/2));bottom:11vh;display:flex;gap:14px}
+.glass{background:#ffffff1c;backdrop-filter:blur(18px);border:1px solid #ffffff2e;border-radius:24px;padding:20px 22px;width:230px}
+.glass b{display:block;font-size:20px;margin-bottom:4px}
+.glass p{font-size:13px;color:var(--steel);line-height:1.55}
+@media(max-width:900px){
+  .hero{height:auto;min-height:100svh;padding:0 0 40px;display:flex;flex-direction:column;justify-content:flex-end}
+  .hero-title{top:13vh;font-size:clamp(120px,40vw,260px)}
+  .hero-copy,.hero-cards{position:relative;left:auto;right:auto;bottom:auto;margin:0 20px;z-index:6}
+  .hero-copy{margin-top:46vh;margin-bottom:24px}
+  .hero-cards{flex-direction:column}
+  .glass{width:100%}
+}
+
+/* ===== Light sections ===== */
+.paper{background:var(--paper);color:var(--paper-ink)}
+section{position:relative}
+.sec{padding:110px 0}
+.tag{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.12em;margin-bottom:30px}
+.tag::before{content:"";width:9px;height:9px;background:currentColor;transform:rotate(45deg)}
+.lead{font-size:clamp(26px,3.4vw,46px);font-weight:700;line-height:1.32;letter-spacing:-.01em}
+.lead em{font-style:normal;color:var(--paper-soft)}
+.dark-sec .lead em{color:var(--soft)}
+.split{display:grid;grid-template-columns:1fr 1.7fr;gap:60px;align-items:start}
+.sub{margin-top:24px;color:var(--paper-soft);max-width:560px}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:26px}.sec{padding:76px 0}}
+
+/* promise cards */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:70px}
+.pcard{background:var(--paper-card);border-radius:var(--r);padding:34px 30px 38px;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .4s,background .4s}
+.pcard:hover{transform:translateY(-6px);background:#fff}
+.pcard .ico{width:60px;height:60px;border-radius:50%;background:var(--paper-ink);color:#fff;display:grid;place-items:center}
+.pcard h3{font-size:26px;line-height:1.3;margin:40px 0 12px}
+.pcard p{color:var(--paper-soft);font-size:15px}
+@media(max-width:900px){.cards3{grid-template-columns:1fr;margin-top:44px}.pcard{min-height:0}.pcard h3{margin-top:28px}}
+
+/* ===== Signature: coating cross-section ===== */
+.coat{height:520vh;background:var(--bg)}
+.coat-stick{position:sticky;top:0;height:100svh;display:flex;align-items:center;overflow:hidden}
+.coat-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center;width:100%}
+.coat h2{font-size:clamp(30px,4vw,56px);line-height:1.2;font-weight:800;margin-bottom:34px}
+.stage-list{list-style:none;position:relative}
+.stage-list li{display:grid;grid-template-columns:64px 1fr;gap:6px 18px;padding:18px 0;border-top:1px solid var(--line);opacity:.28;transition:opacity .4s}
+.stage-list li.on{opacity:1}
+.stage-list .n{font-size:34px;font-weight:800;color:var(--soft);line-height:1}
+.stage-list li.on .n{color:var(--hi)}
+.stage-list h3{font-size:20px}
+.stage-list p{grid-column:2;font-size:14.5px;color:var(--soft)}
+.section-viz{position:relative;aspect-ratio:5/6;max-height:76svh;margin-inline:auto;width:100%}
+.layer{position:absolute;left:0;right:0;border-radius:6px;transform-origin:left;transition:none;will-change:transform,opacity}
+.viz-label{position:absolute;right:0;font-size:12px;letter-spacing:.1em;color:var(--steel);padding-left:14px;border-left:1px solid #ffffff55;opacity:0;transform:translateX(10px);transition:opacity .4s,transform .4s}
+.viz-label.on{opacity:1;transform:none}
+.beam{position:absolute;left:-4%;right:-4%;height:2px;background:linear-gradient(90deg,transparent,#fff,transparent);opacity:0;box-shadow:0 0 18px 2px #ffffff55}
+@media(max-width:900px){
+  .coat{height:560vh}
+  .coat-grid{grid-template-columns:1fr;gap:18px;align-content:center}
+  .section-viz{aspect-ratio:16/9;max-height:34svh}
+  .coat h2{font-size:26px;margin-bottom:14px}
+  .stage-list li{padding:9px 0;grid-template-columns:44px 1fr}
+  .stage-list .n{font-size:22px}
+  .stage-list p{display:none}
+  .stage-list li.on p{display:block;font-size:13px}
+}
+
+/* ===== Who we serve ===== */
+.serve{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:64px}
+.scard{border-radius:var(--r);padding:44px 38px;background:var(--paper-ink);color:#fff;min-height:420px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.scard.light{background:var(--paper-card);color:var(--paper-ink)}
+.scard h3{font-size:30px;line-height:1.3;margin-bottom:14px}
+.scard p{color:var(--soft);font-size:15px;max-width:440px}
+.scard.light p{color:var(--paper-soft)}
+.scard ul{list-style:none;margin-top:28px;display:flex;flex-wrap:wrap;gap:8px}
+.scard li{padding:7px 16px;border-radius:999px;border:1px solid currentColor;font-size:13px;opacity:.85}
+.scard .bg{position:absolute;right:-30px;bottom:-30px;width:300px;opacity:.18}
+@media(max-width:900px){.serve{grid-template-columns:1fr;margin-top:40px}.scard{min-height:0;gap:46px;padding:34px 26px}}
+
+/* ===== Capacity booking ===== */
+.cap{background:var(--bg2);border-radius:56px;margin:0 12px;padding:110px 0}
+.cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.cap h2{font-size:clamp(30px,4.2vw,58px);line-height:1.18;font-weight:800;margin-bottom:24px}
+.cap p{color:var(--soft);max-width:480px;margin-bottom:34px}
+.meter{background:var(--card);border-radius:var(--r);padding:34px;border:1px solid var(--line)}
+.meter h4{font-size:13px;letter-spacing:.12em;color:var(--soft);margin-bottom:26px;font-weight:600}
+.row{display:grid;grid-template-columns:78px 1fr;align-items:center;gap:16px;margin-bottom:16px;font-size:14px;color:var(--steel)}
+.bar{height:30px;border-radius:8px;background:#22262c;position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;width:var(--w);background:repeating-linear-gradient(135deg,#d8dfe6 0 8px,#aeb8c2 8px 16px);border-radius:8px;transform-origin:left;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.bar i.res{background:repeating-linear-gradient(135deg,#ffffff00 0 8px,#ffffff00 8px 16px);box-shadow:inset 0 0 0 1.5px #ffffff88;background-color:transparent}
+.in .bar i{transform:scaleX(1)}
+.meter small{display:block;margin-top:22px;color:var(--soft);font-size:12px}
+@media(max-width:900px){.cap{border-radius:34px;padding:70px 0}.cap-grid{grid-template-columns:1fr;gap:40px}}
+
+/* ===== VSL ===== */
+.vsl{margin-top:60px;aspect-ratio:16/8;border-radius:var(--r);background:
+  radial-gradient(70% 90% at 30% 20%,#3a424b,#111418 70%);position:relative;overflow:hidden;display:grid;place-items:center;color:#fff}
+.vsl svg.grid{position:absolute;inset:0;width:100%;height:100%;opacity:.25}
+.play{position:relative;z-index:2;display:flex;align-items:center;gap:18px;background:#ffffff1f;backdrop-filter:blur(14px);border:1px solid #ffffff44;border-radius:999px;padding:10px 30px 10px 10px;cursor:pointer;color:#fff;font:600 16px var(--font)}
+.play span{display:grid;place-items:center;width:62px;height:62px;border-radius:50%;background:#fff;color:#000}
+.vsl em{position:absolute;left:24px;bottom:18px;font-style:normal;font-size:12px;color:var(--steel);z-index:2}
+@media(max-width:900px){.vsl{aspect-ratio:4/3;margin-top:40px}}
+
+/* ===== Form ===== */
+.form-sec{padding:120px 0 100px}
+.form-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:70px}
+.form-grid h2{font-size:clamp(32px,4.6vw,64px);line-height:1.15;font-weight:800;margin-bottom:24px}
+.form-grid p{color:var(--soft);max-width:420px}
+.get{margin-top:34px;list-style:none;display:grid;gap:12px}
+.get li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--steel)}
+.get li::before{content:"";flex:none;margin-top:9px;width:8px;height:8px;background:#fff;transform:rotate(45deg)}
+form{background:var(--paper);color:var(--paper-ink);border-radius:36px;padding:42px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+form .full{grid-column:1/-1}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:8px}
+input,select,textarea{width:100%;font:inherit;font-size:15px;padding:14px 16px;border-radius:14px;border:1px solid #cdd1d6;background:#fff;color:var(--paper-ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--paper-ink);outline-offset:1px}
+form .btn{justify-self:start}
+.note{font-size:12px;color:var(--paper-soft);align-self:center}
+.ok{display:none;grid-column:1/-1;padding:16px 18px;border-radius:14px;background:var(--paper-ink);color:#fff;font-size:14px}
+@media(max-width:900px){.form-grid{grid-template-columns:1fr;gap:40px}form{grid-template-columns:1fr;padding:28px 22px}.form-sec{padding:80px 0 60px}}
+
+footer{border-top:1px solid var(--line);padding:34px 0 44px;color:var(--soft);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .bar i{transform:scaleX(1);transition:none}
+  .plane,.hero-title{transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="美美 首頁"><b>美</b>美美</a>
+    <div class="links">
+      <a href="#why">核心優勢</a><a href="#process">塗層工序</a><a href="#serve">服務對象</a><a href="#capacity">產能預約</a><a href="#video">廠區影片</a>
+    </div>
+    <a class="btn" href="#book">預約產能諮詢 <i>→</i></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="plane p-far" data-speed="0.12">
+    <!-- far: furnace line silhouette + steel glow -->
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" style="bottom:0;height:100%" aria-hidden="true">
+      <defs>
+        <linearGradient id="gm" x1="0" x2="1"><stop offset="0" stop-color="#2a3037"/><stop offset=".5" stop-color="#5b6672"/><stop offset="1" stop-color="#20252b"/></linearGradient>
+      </defs>
+      <g fill="url(#gm)" opacity=".75">
+        <rect x="120" y="470" width="360" height="290" rx="6"/>
+        <rect x="520" y="420" width="420" height="340" rx="6"/>
+        <rect x="980" y="480" width="330" height="280" rx="6"/>
+        <rect x="1340" y="440" width="260" height="320" rx="6"/>
+      </g>
+      <g stroke="#0a0b0d" stroke-width="3" opacity=".6">
+        <path d="M140 520h320M140 580h320M140 640h320M540 470h380M540 540h380M540 610h380M1000 530h290M1000 590h290M1360 490h220M1360 560h220"/>
+      </g>
+      <g fill="#cfd8e0" opacity=".25"><rect x="120" y="468" width="360" height="4"/><rect x="520" y="418" width="420" height="4"/><rect x="980" y="478" width="330" height="4"/><rect x="1340" y="438" width="260" height="4"/></g>
+    </svg>
+  </div>
+
+  <h2 class="hero-title" data-speed="-0.05" aria-hidden="true"><span>美美</span></h2>
+
+  <div class="plane p-mid" data-speed="0.3">
+    <!-- mid: overhead conveyor rail with hanging parts (occludes the title) -->
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" style="top:0;height:100%" aria-hidden="true">
+      <defs><linearGradient id="gp" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e9eef2"/><stop offset="1" stop-color="#6d7782"/></linearGradient></defs>
+      <rect x="-20" y="262" width="1640" height="12" fill="#14171b"/>
+      <rect x="-20" y="262" width="1640" height="2.5" fill="#aab4bd"/>
+      <g fill="none" stroke="#0b0c0e" stroke-width="3">
+        <path d="M330 274v250M600 274v200M830 274v270M1110 274v210M1330 274v240"/>
+      </g>
+      <!-- hanging parts: railings / frames -->
+      <g fill="url(#gp)">
+        <rect x="300" y="524" width="60" height="230" rx="4"/>
+        <rect x="560" y="474" width="80" height="14" rx="3"/><rect x="560" y="474" width="14" height="190" rx="3"/><rect x="626" y="474" width="14" height="190" rx="3"/>
+        <rect x="790" y="544" width="80" height="170" rx="4"/>
+        <rect x="1070" y="484" width="80" height="14" rx="3"/><rect x="1070" y="484" width="14" height="210" rx="3"/><rect x="1136" y="484" width="14" height="210" rx="3"/>
+        <rect x="1300" y="514" width="60" height="240" rx="4"/>
+      </g>
+      <g fill="#ffffff" opacity=".7"><rect x="304" y="524" width="4" height="230"/><rect x="794" y="544" width="4" height="170"/><rect x="1304" y="514" width="4" height="240"/></g>
+    </svg>
+  </div>
+
+  <div class="plane p-near" data-speed="0.55">
+    <!-- foreground: floor + steel plate edge -->
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" style="bottom:0;height:100%" aria-hidden="true">
+      <defs><linearGradient id="gf" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#262b31"/><stop offset="1" stop-color="#050506"/></linearGradient></defs>
+      <path d="M0 780 C400 760 1200 760 1600 780 V900 H0Z" fill="url(#gf)"/>
+      <path d="M0 780 C400 760 1200 760 1600 780" fill="none" stroke="#c7d0d9" stroke-width="2" opacity=".5"/>
+    </svg>
+  </div>
+
+  <div class="hero-copy">
+    <small>工業表面處理與塗裝加工。把烤漆、噴漆的交期與品質，做成可以預期的事。</small>
+    <h1>交期更快，<br>品質不打折。</h1>
+    <a class="btn" href="#book">預約產能諮詢 <i>→</i></a>
+  </div>
+  <div class="hero-cards">
+    <div class="glass"><b>標準化製程</b><p>每一件都走同一套 SOP，批量與急單節奏一致。</p></div>
+    <div class="glass"><b>數據化監控</b><p>爐體運作與製程狀態有紀錄，延誤看得見、追得到。</p></div>
+  </div>
+</header>
+
+<!-- WHY -->
+<section class="paper sec" id="why">
+  <div class="wrap">
+    <div class="split">
+      <div class="tag rv">為什麼選擇美美</div>
+      <div>
+        <p class="lead rv">不必在速度與品質之間二選一。<em>我們把代工的不確定，換成可預期的交付。</em></p>
+        <p class="sub rv">結構件、欄杆、鋼構與精密零件，從進料到出貨，同一個窗口、同一套標準，不再層層轉包、各自為政。</p>
+        <a class="btn dark rv" style="margin-top:34px" href="#book">取得製程規格書 <i>→</i></a>
+      </div>
+    </div>
+    <div class="cards3">
+      <article class="pcard rv">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div><h3>極速交期，穩定節奏</h3><p>標準化製程與數據監控，縮短週轉時間。急單可以排進來，大單也不會塞車。</p></div>
+      </article>
+      <article class="pcard rv">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg></div>
+        <div><h3>高規格品質保證</h3><p>以穩定的加工品質，取代層層轉包的品管風險。我們賣的是每一批都一致。</p></div>
+      </article>
+      <article class="pcard rv">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg></div>
+        <div><h3>彈性產能，預先鎖定</h3><p>整合產能與標準化 SOP，重複性的大宗專案可提前預約排程，批量生產更有把握。</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE: coating cross-section -->
+<section class="coat dark-sec" id="process">
+  <div class="coat-stick">
+    <div class="wrap coat-grid">
+      <div>
+        <div class="tag" style="color:var(--steel)">塗層工序</div>
+        <h2>一層一層，<br>把品質疊上去。</h2>
+        <ol class="stage-list" id="stages">
+          <li><span class="n">01</span><h3>需求與規格確認</h3><p>確認件種、尺寸、批量、交期與表面要求，先把條件說清楚。</p></li>
+          <li><span class="n">02</span><h3>前處理</h3><p>除油、除銹、表面調整，附著力從這一步決定。</p></li>
+          <li><span class="n">03</span><h3>底漆與面漆塗裝</h3><p>依規格噴塗，膜厚與均勻度受控，批與批之間一致。</p></li>
+          <li><span class="n">04</span><h3>烘烤固化與檢驗</h3><p>爐體製程數據留存，成品逐批檢驗後才出貨。</p></li>
+        </ol>
+      </div>
+      <div class="section-viz" id="viz" aria-label="塗層剖面示意圖">
+        <!-- layers drawn bottom (substrate) to top; JS scales/opacity by progress -->
+        <div class="layer" data-i="0" style="bottom:12%;height:30%;background:linear-gradient(#59626c,#2f353b);box-shadow:inset 0 2px 0 #ffffff55"></div>
+        <div class="layer" data-i="1" style="bottom:42%;height:6%;background:repeating-linear-gradient(90deg,#8d98a4 0 6px,#6f7a86 6px 12px)"></div>
+        <div class="layer" data-i="2" style="bottom:48%;height:10%;background:#d9dfe5"></div>
+        <div class="layer" data-i="3" style="bottom:58%;height:8%;background:#f4f6f8;box-shadow:0 0 30px #ffffff33"></div>
+        <div class="beam" id="beam" style="bottom:66%"></div>
+        <span class="viz-label" data-i="0" style="bottom:24%">鋼材基材</span>
+        <span class="viz-label" data-i="1" style="bottom:43.5%">前處理層</span>
+        <span class="viz-label" data-i="2" style="bottom:51%">底漆</span>
+        <span class="viz-label" data-i="3" style="bottom:60%">面漆 · 檢驗通過</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVE -->
+<section class="paper sec" id="serve">
+  <div class="wrap">
+    <div class="split">
+      <div class="tag rv">服務對象</div>
+      <p class="lead rv">為需要穩定產能的<em>決策者</em>而設計。不用比價拼運氣，直接談規格與交期。</p>
+    </div>
+    <div class="serve">
+      <article class="scard rv">
+        <svg class="bg" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="3"><path d="M20 180V60l40-20 40 20v120M100 180V30l40 20 40 20v110M20 100h80M100 120h80M40 140h40"/></svg>
+        <div><h3>營造建商與統包商</h3><p>欄杆、鋼構、結構件等重複性高的發包。標準化之後，每一層樓、每一批構件，規格與色差都一致。</p></div>
+        <ul><li>欄杆</li><li>鋼構</li><li>結構件</li></ul>
+      </article>
+      <article class="scard light rv">
+        <svg class="bg" viewBox="0 0 200 200" fill="none" stroke="#000" stroke-width="3"><circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="70"/><path d="M100 10v40M100 150v40M10 100h40M150 100h40"/></svg>
+        <div><h3>高科技與精密製造</h3><p>對交期與品質要求極高的設備與零組件。可追溯的製程紀錄與穩定良率，是我們交付的一部分。</p></div>
+        <ul><li>設備外殼</li><li>精密零件</li><li>批量加工</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CAPACITY -->
+<section class="cap" id="capacity">
+  <div class="wrap cap-grid">
+    <div>
+      <div class="tag" style="color:var(--steel)">產能預約</div>
+      <h2 class="rv">先鎖產能，<br>再談擴張。</h2>
+      <p class="rv">有大宗或長期的塗裝需求，建議在專案啟動前就預約排程。提前確定量體，我們能更準確地安排產線與交期，您的專案也不必在旺季排隊。</p>
+      <a class="btn rv" href="#book">預約產能諮詢 <i>→</i></a>
+    </div>
+    <div class="meter rv" id="meter">
+      <h4>預約排程示意（非實際數據）</h4>
+      <div class="row"><span>第 1 週</span><div class="bar"><i style="--w:92%"></i></div></div>
+      <div class="row"><span>第 2 週</span><div class="bar"><i style="--w:78%"></i></div></div>
+      <div class="row"><span>第 3 週</span><div class="bar"><i style="--w:55%"></i></div></div>
+      <div class="row"><span>第 4 週</span><div class="bar"><i class="res" style="--w:100%"></i></div></div>
+      <small>實心代表已排定，空框代表可預約的產能。實際排程以諮詢後確認為準。</small>
+    </div>
+  </div>
+</section>
+
+<!-- VSL -->
+<section class="paper sec" id="video">
+  <div class="wrap">
+    <div class="split">
+      <div class="tag rv">廠區與品管</div>
+      <p class="lead rv">看過流程，再決定要不要談。<em>自動化產線與品管檢驗，影片說明。</em></p>
+    </div>
+    <div class="vsl rv">
+      <svg class="grid" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true"><g stroke="#fff" stroke-width=".6"><path d="M0 100H800M0 200H800M0 300H800M160 0V400M320 0V400M480 0V400M640 0V400"/></g></svg>
+      <button class="play" type="button" aria-label="播放廠區影片"><span>▶</span>觀看製程介紹</button>
+      <em>影片待提供，可替換為嵌入連結</em>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="form-sec" id="book">
+  <div class="wrap form-grid">
+    <div>
+      <div class="tag" style="color:var(--steel)">預約產能諮詢</div>
+      <h2 class="rv">告訴我們您的需求，<br>我們回覆規格與報價試算。</h2>
+      <p class="rv">只需幾個欄位。專人會依您的件種與批量，提供製程規格書與報價試算。</p>
+      <ul class="get rv"><li>製程規格書</li><li>報價試算</li><li>可行的交期與排程建議</li></ul>
+    </div>
+    <form id="form" class="rv" novalidate>
+      <div><label for="company">公司名稱</label><input id="company" name="company" required autocomplete="organization"></div>
+      <div><label for="name">聯絡人</label><input id="name" name="name" required autocomplete="name"></div>
+      <div><label for="contact">Email 或電話</label><input id="contact" name="contact" required autocomplete="email"></div>
+      <div><label for="type">預計加工件種類</label>
+        <select id="type" name="type"><option>欄杆</option><option>鋼構</option><option>結構件</option><option>設備外殼</option><option>精密零件</option><option>其他</option></select></div>
+      <div><label for="vol">預估每月批量</label><input id="vol" name="vol" placeholder="例：約 500 件"></div>
+      <div><label for="due">預計交期</label><input id="due" name="due" placeholder="例：下單後 3 週內"></div>
+      <div class="full"><label for="msg">補充說明（選填）</label><textarea id="msg" name="msg" rows="3"></textarea></div>
+      <div class="full" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
+        <button class="btn dark" type="submit">送出，預約諮詢 <i>→</i></button>
+        <span class="note">送出後會開啟您的郵件軟體。正式上線可改接 Google 表單。</span>
+      </div>
+      <div class="ok" id="ok" role="status">已為您準備好郵件，請在郵件軟體中按下送出。</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top"><b>美</b>美美</a>
+    <span>工業表面處理與塗裝加工</span>
+    <span>© 美美 All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var RECEIVER = "your-email@example.com"; // TODO: 換成實際收件信箱，或改為 Google 表單網址
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+
+  /* nav */
+  var nav = $("#nav");
+
+  /* hero parallax */
+  var planes = $$("[data-speed]");
+  var hero = $(".hero");
+
+  /* coat cross-section */
+  var coat = $(".coat"), layers = $$(".layer"), labels = $$(".viz-label"), stages = $$("#stages li"), beam = $("#beam");
+  var cuts = [0.0, 0.25, 0.5, 0.75]; // when each stage starts
+
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+  function ease(t){return 1-Math.pow(1-t,3)}
+
+  function frame(){
+    var y = scrollY;
+    nav.classList.toggle("solid", y > 40);
+
+    if(!reduce && y < hero.offsetHeight + 200 && innerWidth > 900){
+      planes.forEach(function(p){ p.style.transform = "translate3d(0," + (y * parseFloat(p.dataset.speed)) + "px,0)"; });
+    }
+
+    var r = coat.getBoundingClientRect();
+    var total = r.height - innerHeight;
+    var p = clamp(-r.top / total, 0, 1);
+    // map 0..1 into 4 stages; stage 0 = spec only (substrate visible), 1 pretreat, 2 primer, 3 top coat+inspect
+    var stageIdx = p < 0.22 ? 0 : p < 0.45 ? 1 : p < 0.7 ? 2 : 3;
+    stages.forEach(function(li,i){ li.classList.toggle("on", i === stageIdx); });
+
+    var seg = [ [0,.12], [.22,.40], [.45,.65], [.70,.90] ];
+    layers.forEach(function(l,i){
+      var t = ease(clamp((p - seg[i][0]) / (seg[i][1] - seg[i][0]), 0, 1));
+      if(reduce) t = (i <= stageIdx) ? 1 : 0;
+      l.style.opacity = t;
+      l.style.transform = "scaleX(" + (0.15 + 0.85 * t) + ") translateY(" + ((1 - t) * -26) + "px)";
+    });
+    labels.forEach(function(lb,i){ lb.classList.toggle("on", i <= stageIdx && (p >= seg[i][0] + 0.02 || reduce)); });
+    // inspection beam sweeps during the last stage
+    var bt = clamp((p - 0.82) / 0.16, 0, 1);
+    beam.style.opacity = (bt > 0 && bt < 1) ? 1 : 0;
+    beam.style.bottom = (12 + 54 * (1 - Math.abs(bt * 2 - 1))) + "%";
+  }
+  var tick = false;
+  addEventListener("scroll", function(){ if(!tick){ tick = true; requestAnimationFrame(function(){ tick = false; frame(); }); } }, {passive:true});
+  addEventListener("resize", frame);
+  frame();
+
+  /* reveal */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  $$(".rv").forEach(function(el){ io.observe(el); });
+
+  /* form -> mailto (swap for Google Form later) */
+  $("#form").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var f = ev.target, bad = false;
+    ["company","name","contact"].forEach(function(id){
+      var el = f.elements[id];
+      if(!el.value.trim()){ bad = true; el.style.borderColor = "#c00"; } else { el.style.borderColor = ""; }
+    });
+    if(bad){ return; }
+    var d = {}; new FormData(f).forEach(function(v,k){ d[k] = v; });
+    var body = "公司名稱：" + d.company + "\n聯絡人：" + d.name + "\n聯絡方式：" + d.contact +
+      "\n加工件種類：" + d.type + "\n預估每月批量：" + d.vol + "\n預計交期：" + d.due + "\n補充說明：" + d.msg;
+    $("#ok").style.display = "block";
+    location.href = "mailto:" + RECEIVER + "?subject=" + encodeURIComponent("產能諮詢預約｜" + d.company) + "&body=" + encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>
